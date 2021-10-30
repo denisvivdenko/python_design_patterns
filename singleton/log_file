@@ -1,0 +1,7 @@
+[DEBUG]: debug this part
+[INFO]: information
+[INFO]: <singleton.logger.Logger._Logger object at 0x7fc8dc610880>
+<singleton.logger.Logger._Logger object at 0x7fc8dc610880>
+[DEBUG]: debug this part
+[INFO]: information
+[DEBUG]: <singleton.logger.Logger._Logger object at 0x7fc8dc610880>
