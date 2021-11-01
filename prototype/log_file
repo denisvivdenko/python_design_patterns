@@ -1,0 +1,13 @@
+[DEBUG]: properties: {'1': {'power': 10, 'agility': 10}, '2': {'power': 15, 'agility': 12}}
+[DEBUG]: level: 1
+[DEBUG]: properties: {'1': {'power': 10, 'agility': 10}, '2': {'power': 15, 'agility': 12}}
+[DEBUG]: level: 2
+[INFO]: 
+knight:
+power: 10
+agility: 10
+
+[INFO]: 
+wizard:
+power: 7
+max distance: 7

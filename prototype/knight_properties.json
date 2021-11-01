@@ -1,0 +1,12 @@
+{
+    "knight_levels": {
+        "1": {
+            "power": 10,
+            "agility": 10
+        },
+        "2": {
+            "power": 15,
+            "agility": 12
+        }
+    }
+}

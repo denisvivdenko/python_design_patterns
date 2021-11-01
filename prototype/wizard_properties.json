@@ -1,0 +1,12 @@
+{
+    "wizard_levels": {
+        "1": {
+            "power": 5,
+            "max_distance": 20
+        },
+        "2": {
+            "power": 7,
+            "max_distance": 25
+        }
+    }
+}
