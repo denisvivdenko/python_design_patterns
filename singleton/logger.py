@@ -16,7 +16,7 @@ class Logger(object):
 
     instance = None
 
-    def __new__(cls, log_file: str):
+    def __new__(cls, log_file: str = None):
         if not Logger.instance:
             Logger.instance = Logger._Logger(log_file)
 
