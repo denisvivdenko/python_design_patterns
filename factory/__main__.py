@@ -1,8 +1,16 @@
 from typing import Tuple
 from collections import namedtuple
+from enum import Enum
 import pygame
 
 ScreenSize = namedtuple("ScreenSize", "width height")
+
+class Direction(Enum):
+    UP = 1
+    DOWN = 2
+    LEFT = 3
+    RIGHT = 4
+
 
 class Unit:
     def __init__(self, x: int, y: int, width: int, height: int, screen_size: ScreenSize) -> None:
@@ -15,6 +23,16 @@ class Unit:
 
     def draw_sprite(self, screen: pygame.Surface) -> None:
         pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.width))
+    
+    def move_unit(self, speed: int, direction: Direction, screen: pygame.Surface) -> None:
+        if direction == Direction.UP:
+            self.y -= speed
+        elif direction == Direction.DOWN:
+            self.y += speed
+        elif direction == Direction.LEFT:
+            self.x -= speed
+        elif direction == Direction.RIGHT:
+            self.x += speed
 
     @property
     def x(self) -> int:
@@ -48,13 +66,13 @@ while not has_quit:
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_UP]:
-            unit.y -= speed
+            unit.move_unit(speed, Direction.UP, screen)
         if pressed[pygame.K_DOWN]:
-            unit.y += speed
+            unit.move_unit(speed, Direction.DOWN, screen)
         if pressed[pygame.K_LEFT]:
-            unit.x -= speed
+            unit.move_unit(speed, Direction.LEFT, screen)
         if pressed[pygame.K_RIGHT]:
-            unit.x += speed
+            unit.move_unit(speed, Direction.RIGHT, screen)
 
         screen.fill((0, 0, 0))
         unit.draw_sprite(screen)
