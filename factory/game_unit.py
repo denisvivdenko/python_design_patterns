@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 import pygame
 
-from .screen import ScreenSize
+from .screen import Point, ScreenSize
 from .direction import Direction
 
-class Unit(ABC):
+class GameUnit(ABC):
     def __init__(self, x: int, y: int, width: int, height: int, screen_size: ScreenSize) -> None:
         self.screen_size = screen_size
         self.width = width
@@ -31,10 +31,14 @@ class Unit(ABC):
         if self.screen_size.height > (value + self.height) and value >= 0:
             self._y = value
             
+    @property
+    def current_point(self):
+        return Point(self._x, self._y)
+
     @abstractmethod
     def draw_sprite(self, screen: pygame.Surface) -> None:
         pass
-
+    
     def move_unit(self, speed: int, direction: Direction) -> None:
         if direction == Direction.UP:
             self.y -= speed
