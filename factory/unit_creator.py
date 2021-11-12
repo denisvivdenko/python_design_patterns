@@ -4,9 +4,13 @@ from .player import Player
 from .game_unit import GameUnit
 
 class UnitCreator:
-    def CreateUnit(self, type: str, respawn_point: Point, screen_size: ScreenSize) -> GameUnit:
+    def __init__(self, screen_size: ScreenSize) -> None:
+        self.screen_size = screen_size
+
+    def CreateUnit(self, type: str, respawn_point: Point) -> GameUnit:
         if type == "Player":
-            return Player(*respawn_point, width=100, height=100, screen_size=screen_size)
+            return Player(x=respawn_point.x, y=respawn_point.y, width=100, height=100, screen_size=self.screen_size)
         elif type == "Enemy":
-            return Enemy(*respawn_point, width=100, height=100, screen_size=screen_size)
+            return Enemy(x=respawn_point.x, y=respawn_point.y, width=100, height=100, screen_size=self.screen_size)
+
         raise Exception("Unknown game unit type.")

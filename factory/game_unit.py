@@ -5,8 +5,9 @@ from .screen import Point, ScreenSize
 from .direction import Direction
 
 class GameUnit(ABC):
-    def __init__(self, x: int, y: int, width: int, height: int, screen_size: ScreenSize) -> None:
+    def __init__(self, x: int, y: int, width: int, height: int,screen_size: ScreenSize, speed: int = 20) -> None:
         self.screen_size = screen_size
+        self.speed = speed
         self.width = width
         self.height = height
         self.color = (255, 0, 30)
@@ -39,12 +40,12 @@ class GameUnit(ABC):
     def draw_sprite(self, screen: pygame.Surface) -> None:
         pass
     
-    def move_unit(self, speed: int, direction: Direction) -> None:
+    def move_unit(self, direction: Direction) -> None:
         if direction == Direction.UP:
-            self.y -= speed
+            self.y -= self.speed
         elif direction == Direction.DOWN:
-            self.y += speed
+            self.y += self.speed
         elif direction == Direction.LEFT:
-            self.x -= speed
+            self.x -= self.speed
         elif direction == Direction.RIGHT:
-            self.x += speed
+            self.x += self.speed
