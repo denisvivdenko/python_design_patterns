@@ -1,3 +1,4 @@
+from factory.player import Player
 from .screen import ScreenSize
 from .direction import Direction
 from .unit import Unit
@@ -9,7 +10,7 @@ if __name__ == "__main__":
     pygame.init()
     screen_size = ScreenSize(width=800, height=600)
     screen = pygame.display.set_mode(screen_size)
-    player = Unit(x=10, y=10, width=100, height=100, screen_size=screen_size)
+    player = Player(x=10, y=10, width=100, height=100, screen_size=screen_size)
     enemy = Enemy(x=400, y=400, width=100, height=100, screen_size=screen_size)
     has_quit = False
     speed = 20
