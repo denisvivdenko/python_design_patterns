@@ -1,11 +1,12 @@
-from typing import List
+from typing import Dict, List
+
+from builder.html_field import HTMLField
 
 
 class WebformGenerator:
-    def __init__(self, fields: List[str]) -> None:
+    def __init__(self, fields: List[Dict[str, str]]) -> None:
         self.fields = fields
 
     def generate_webform(self) -> str:
-        generate_field = lambda field_name: f'{field_name}:<br><input type="text" name="{field_name}"><br>'
-        generated_fields = [generate_field(field_name) for field_name in self.fields]
+        generated_fields = ["\n" + str(HTMLField(field_parameter)) for field_parameter in self.fields]
         return f"<form>{''.join(generated_fields)}</form>"
