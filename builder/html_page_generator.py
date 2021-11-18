@@ -1,8 +1,8 @@
-from builder.webform_generator import WebformGenerator
+from builder.webform_builder import WebformBuilder
 
 
-class HTMLBuilder:
-    def __init__(self, webform: WebformGenerator) -> None:
+class HTMLPageGenerator:
+    def __init__(self, webform: WebformBuilder) -> None:
         self.webform = webform
 
     def build_html_file(self, file_name: str) -> None:

@@ -1,5 +1,5 @@
-from .html_page_builder import HTMLBuilder
-from .webform_generator import WebformGenerator
+from .html_page_generator import HTMLPageGenerator
+from .webform_builder import WebformBuilder 
 
 
 if __name__ == "__main__":
@@ -32,6 +32,6 @@ if __name__ == "__main__":
             "name": "user_address"
         }
     ]
-    webform = WebformGenerator(forms)
-    html_builder = HTMLBuilder(webform)
+    webform = WebformBuilder(forms)
+    html_builder = HTMLPageGenerator(webform)
     html_builder.build_html_file("builder/index.html")

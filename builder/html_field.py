@@ -1,7 +1,7 @@
 from typing import Dict
 
 
-class HTMLField:
+class HTMLFieldDirector:
     def __init__(self, field_parameters: Dict[str, str]) -> None:
         self.html = ""
         field_type = field_parameters["type"]
