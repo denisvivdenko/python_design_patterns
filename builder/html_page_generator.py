@@ -11,4 +11,6 @@ class HTMLPageGenerator:
             file.write(html_page)
 
     def _build_skeleton(self, content: str) -> str:
-        return f"<html><body>{content}</body></html>"
+        return "<html><body>{0}\n</body></html>".format(
+            content
+        )

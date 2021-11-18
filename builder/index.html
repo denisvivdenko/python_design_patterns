@@ -1,6 +1,12 @@
-<html><body><form>
+<html><body>
+                <form action="{ url_for('handle_data') }" method="post">
+                    
 Name:<br><input type="text" name="user_name"><br>
 Surname:<br><input type="text" name="user_surname"><br>
 <label><input type="checkbox" id="gendre"                 value="1"> male<br>
 <label><input type="checkbox" id="gendre"                 value="1"> female<br>
-Address:<br><input type="text" name="user_address"><br></form></body></html>
+Address:<br><input type="text" name="user_address"><br>
+<input type="submit">
+                </form>
+                
+</body></html>

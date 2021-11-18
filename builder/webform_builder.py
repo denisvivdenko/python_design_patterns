@@ -9,4 +9,10 @@ class WebformBuilder:
 
     def generate_webform(self) -> str:
         generated_fields = ["\n" + str(HTMLFieldDirector(field_parameter)) for field_parameter in self.fields]
-        return f"<form>{''.join(generated_fields)}</form>"
+        return '''
+                <form action="{{ url_for('handle_data') }}" method="post">
+                    {0}\n<input type="submit">
+                </form>
+                '''.format(
+                    ''.join(generated_fields)
+                )
